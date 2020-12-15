@@ -4,16 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Movie</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+    <div class="container">
   <h1>Add Movie</h1>
   <form action="/movies/add" method="post">
+    <div class="row">
+        <div class="col-sm">
     <label for="name" id="name" name="name">Name</label><br>
-    <input type="text" id="name" name="name" placeholder="e.g: 12 Angry Men"><br><br>
+    <input type="text" id="name" name="name" size="20" class="form-control" placeholder="e.g: 12 Angry Men"><br><br>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
     <label for="release_year" id="release_year" name="release_year">Release Year</label><br>
-    <input type="text" id="release_year" name="release_year" placeholder="e.g: 1957"><br><br>
+    <input type="text" id="release_year" class="form-control" name="released_year" placeholder="e.g: 1957"><br><br>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
     <label for="genre" id="genre" name="genre">Genre</label><br>
-    <select name="genre" id="genre">
+    <select name="genre" class="form-control" id="genre">
       <option value="animation">animation</option>
       <option value="comedy">comedy</option>
       <option value="drama">drama</option>
@@ -21,7 +33,10 @@
       <option value="religius">religius</option>
       <option value="thriller">thriller</option>
     </select><br><br>
-    <input type="submit" value="Submit">
+    </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
   </form>
+  </div>
 </body>
 </html> 

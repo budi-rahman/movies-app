@@ -12,16 +12,21 @@
   <form action="/movies/edit/<%= data.id %> " method="post">
     <input type="hidden" id="id" name="id" class="form-control" value="<%= data.id %> ">
     <div class="form-group">
+        <div class="row">
     <label for="name" id="name" name="name">Name</label><br>
     <input type="text" id="name" class="form-control" name="name" value="<%= data.name %> "><br><br>
     </div>
-    <div class="form-group">
-    <label for="release_year" id="release_year" name="release_year">Release Year</label><br>
-    <input type="text" id="release_year" class="form-control" name="release_year" value="<%= data.released_year %> "><br><br>
     </div>
     <div class="form-group">
+        <div class="row">
+    <label for="release_year" id="release_year" name="release_year">Release Year</label><br>
+    <input type="text" id="release_year" class="form-control" name="released_year" value="<%= data.released_year %> "><br><br>
+    </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
     <label for="genre" id="genre" name="genre">Genre</label><br>
-    <select name="genre" id="genre" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <select name="genre" class="form-control" id="genre">
       <option value="animation" <%= data.genre === `animation` ? `selected="selected"` : `` %> >animation</option>
       <option value="comedy" <%= data.genre === `comedy` ? `selected="selected"` : `` %> >comedy</option>
       <option value="drama" <%= data.genre === `drama` ? `selected="selected"` : `` %> >drama</option>
@@ -29,8 +34,10 @@
       <option value="religius" <%= data.genre === `religius` ? `selected="selected"` : `` %> >religius</option>
       <option value="thriller" <%= data.genre === `thriller` ? `selected="selected"` : `` %> >thriller</option>
     </select><br><br>
-    <input type="submit" value="Update">
-    <input type="submit" value="Cancel">
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+    <a href="/movies"><button type="button" class="btn btn-danger btn-sm">Cancel</button></a>
+
   </div>
   </form>
   </div>

@@ -4,10 +4,10 @@ class MovieController{
     static movieList(req, res){
         Movie.findAll({order : [
             ['released_year', 'DESC']], 
-        include: ProductionHouse
+        include: [ProductionHouse]
         })
         .then(data =>{
-            console.log(data[0])
+            console.log(data[0].ProductionHouse.pr)
             res.render('movies', {data})
         })
         .catch(error =>{

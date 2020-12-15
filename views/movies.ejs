@@ -32,7 +32,7 @@
           <td><%= data.name %> </td>
           <td><%= data.released_year %> </td>
           <td><%= data.genre %> </td>
-          <td>unknown </td>
+          <td><%= data.ProductionHouse.name_prodHouse %> </td>
           <td>
             <a href="/movies/edit/<%= data.id %> "><button type="button" class="btn btn-info btn-sm">Edit Movie</button></a> |
             <a href="/movies/delete/<%= data.id %> "><button type="button" class="btn btn-danger btn-sm">Delete Movie</button></a>
