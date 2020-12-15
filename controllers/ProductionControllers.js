@@ -3,6 +3,7 @@ const { ProductionHouse, Movies } = require('../models')
 class ProductionController{
     static ProductionList(req, res){
         //res.send('halaman production')
+        console.log("Home")
 
         ProductionHouse.findAll({
             includes:[Movies]

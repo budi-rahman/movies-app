@@ -4,9 +4,10 @@ class MovieController{
     static movieList(req, res){
         Movie.findAll({order : [
             ['released_year', 'DESC']], 
-        include: [ProductionHouse]
+        include: ProductionHouse
         })
         .then(data =>{
+            console.log(data[0])
             res.render('movies', {data})
         })
         .catch(error =>{
@@ -53,7 +54,7 @@ class MovieController{
             })
         })
         .then(data => {
-            res.render('edit', {data, ProductionData})
+            res.render('edit', {data:data[0]})
         })
         .catch(err => {
             res.send(err)
@@ -70,14 +71,14 @@ class MovieController{
             updateAt: new Date()
         }
         Movie.update(movie, {where: {id: id}})
-        .then(res.redirect('/movie'))
+        .then(res.redirect('/movies'))
         .catch(err => res.send(err))
     }
 
     static deleteMovie (req, res){
         const id = +req.params.id
         Movie.destroy({where: {id: id}})
-        .then(res.redirect('/movie'))
+        .then(res.redirect('/movies'))
         .catch(err => res.send(err))
     }
 }
