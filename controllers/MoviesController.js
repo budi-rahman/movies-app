@@ -7,8 +7,6 @@ class MovieController{
         include: [ProductionHouse]
         })
         .then(data =>{
-            // console.log()
-            console.log(data[0].ProductionHouse.pr)
             res.render('movies', {data})
         })
         .catch(error =>{

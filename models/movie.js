@@ -12,12 +12,14 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Movie.belongsTo(models.ProductionHouse)
+      Movie.belongsToMany(models.Cast, {through:models.MovieCast})
     }
   };
   Movie.init({
     name: DataTypes.STRING,
     released_year: DataTypes.INTEGER,
-    genre: DataTypes.STRING
+    genre: DataTypes.STRING,
+    rating: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Movie',
