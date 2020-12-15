@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Movie</title>
+</head>
+<body>
+  <h1>Edit Movie</h1>
+  <form action="/movies/edit/<%= data.id %> " method="post">
+    <input type="hidden" id="id" name="id" value="<%= data.id %> ">
+    <label for="name" id="name" name="name">Name</label><br>
+    <input type="text" id="name" name="name" value="<%= data.name %> "><br><br>
+    <label for="release_year" id="release_year" name="release_year">Release Year</label><br>
+    <input type="text" id="release_year" name="release_year" value="<%= data.release_year %> "><br><br>
+    <label for="genre" id="genre" name="genre">Genre</label><br>
+    <select name="genre" id="genre">
+      <option value="animation" <%= data.genre === `animation` ? `selected="selected"` : `` %> >animation</option>
+      <option value="comedy" <%= data.genre === `comedy` ? `selected="selected"` : `` %> >comedy</option>
+      <option value="drama" <%= data.genre === `drama` ? `selected="selected"` : `` %> >drama</option>
+      <option value="horor" <%= data.genre === `horor` ? `selected="selected"` : `` %> >horor</option>
+      <option value="religius" <%= data.genre === `religius` ? `selected="selected"` : `` %> >religius</option>
+      <option value="thriller" <%= data.genre === `thriller` ? `selected="selected"` : `` %> >thriller</option>
+    </select><br><br>
+    <input type="submit" value="Update">
+    <input type="submit" value="Cancel">
+  </form>
+</body>
+</html> 

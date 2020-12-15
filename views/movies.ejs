@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie List</title>
+</head>
+<style>
+  table, th, td {
+    border: 1px solid black;
+  }
+</style>
+<body>
+  <h1>Movie List</h1>
+  <a href="/movies/add">Add Movie</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Movie</th>
+        <th>Released Year</th>
+        <th>Genre</th>
+        <th>Production House</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.map(data => { %> 
+        <tr>
+          <td><%= data.name %> </td>
+          <td><%= data.release_year %> </td>
+          <td><%= data.genre %> </td>
+          <td>unknown </td>
+          <td>
+            <a href="/movies/edit/<%= data.id %> ">Edit</a> |
+            <a href="/movies/delete/<%= data.id %> ">Delete</a>
+          </td>
+        </tr>
+      <% }) %> 
+    </tbody>
+  </table>
+</body>
+</html> 

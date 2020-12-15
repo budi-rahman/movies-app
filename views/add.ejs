@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Movie</title>
+</head>
+<body>
+  <h1>Add Movie</h1>
+  <form action="/movies/add" method="post">
+    <label for="name" id="name" name="name">Name</label><br>
+    <input type="text" id="name" name="name" placeholder="e.g: 12 Angry Men"><br><br>
+    <label for="release_year" id="release_year" name="release_year">Release Year</label><br>
+    <input type="text" id="release_year" name="release_year" placeholder="e.g: 1957"><br><br>
+    <label for="genre" id="genre" name="genre">Genre</label><br>
+    <select name="genre" id="genre">
+      <option value="animation">animation</option>
+      <option value="comedy">comedy</option>
+      <option value="drama">drama</option>
+      <option value="horor">horor</option>
+      <option value="religius">religius</option>
+      <option value="thriller">thriller</option>
+    </select><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html> 

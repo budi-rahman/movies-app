@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Production House List</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Production House List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Headquarter</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.map(data => { %> 
+        <tr>
+          <td><%= data.name_prodHouse %> </td>
+          <td><%= data.headquarters %> </td>
+        </tr>
+      <% }) %> 
+    </tbody>
+  </table>
+</body>
+</html> 
