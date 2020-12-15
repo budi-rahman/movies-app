@@ -35,9 +35,19 @@
       <option value="thriller" <%= data.genre === `thriller` ? `selected="selected"` : `` %> >thriller</option>
     </select><br><br>
     </div>
+    
+    <div class="form-group">
+        <div class="row">
+    <label for="pHouse" id="pHouse" name="pHouse">Production House</label><br>
+    <select name="pHouse" class="form-control" id="pHouse">
+        <% for (var i=0; i<pHouse.length; i++) { %>
+      <option value="<%= pHouse[i].name_prodHouse %>" <%= data.ProductionHouse.id == `pHouse[i].id` ? `selected="selected"` : `` %> > <%= pHouse[i].name_prodHouse %></option>
+      <% } %>
+    </select><br><br>
+    </div>
+    </div>
     <button type="submit" class="btn btn-primary btn-sm">Update</button>
     <a href="/movies"><button type="button" class="btn btn-danger btn-sm">Cancel</button></a>
-
   </div>
   </form>
   </div>

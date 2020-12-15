@@ -7,6 +7,7 @@ class MovieController{
         include: [ProductionHouse]
         })
         .then(data =>{
+            // console.log()
             console.log(data[0].ProductionHouse.pr)
             res.render('movies', {data})
         })
@@ -16,7 +17,16 @@ class MovieController{
     }
 
     static addMovie(req, res){
-        res.render('add')
+        ProductionHouse.findAll({
+            order: [
+                ["name_prodHouse", "ASC"]
+            ]
+        })
+        .then((data) => {
+            console.log(data)
+            res.render('add', {data:data})
+        })
+        
     }
 
     static addMoviePost(req, res){
@@ -54,7 +64,7 @@ class MovieController{
             })
         })
         .then(data => {
-            res.render('edit', {data:data[0]})
+            res.render('edit', {data:data[0], pHouse:ProductionData})
         })
         .catch(err => {
             res.send(err)
