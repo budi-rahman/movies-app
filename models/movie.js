@@ -17,7 +17,19 @@ module.exports = (sequelize, DataTypes) => {
   };
   Movie.init({
     name: DataTypes.STRING,
-    released_year: DataTypes.INTEGER,
+    released_year: {
+      type : Sequelize.INTEGER,
+      validate : {
+        kabisatCheck(value){
+          const year = Number(value)
+          if(year % 4 === 0 && year % 100 !== 0){
+            throw error
+          } else if( year % 4 === 0 && year % 100 === 0 && year % 400 === 0){
+            throw error
+          }
+        }
+      }
+    },
     genre: DataTypes.STRING,
     rating: DataTypes.INTEGER
   }, {
