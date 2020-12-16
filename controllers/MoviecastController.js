@@ -1,28 +1,6 @@
 const { Cast, Movie, MovieCast } = require('../models')
 
 class MoviecastController{
-    // static getMovieCast(req, res){
-    //     var id = req.params.id
-    //     var mv_cast = null
-    //     var castes = null
-    //     Movie.findAll({
-    //         where :{id:id}
-    //     })
-    //     .then(data => {
-    //         mv_cast = data
-    //         return Cast.findAll().catch (err => {
-    //             console.log(err)
-    //         })
-    //     })
-    //     .then(data => {
-    //         console.log(data)
-    //         castes = data
-    //         res.render('moviecast', {data,mv_cast,id})
-    //     })
-    //     .catch(err => {
-    //         res.send(error)
-    //     })
-    // }
 
     static getMovieCast(req,res){
         var id = req.params.id

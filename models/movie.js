@@ -3,6 +3,8 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
+  const Sequelize = sequelize.Sequelize
+  const Model = Sequelize.Model
   class Movie extends Model {
     /**
      * Helper method for defining associations.
