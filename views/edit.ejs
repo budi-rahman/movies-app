@@ -41,7 +41,7 @@
     <label for="pHouse" id="pHouse" name="pHouse">Production House</label><br>
     <select name="pHouse" class="form-control" id="pHouse">
         <% for (var i=0; i<pHouse.length; i++) { %>
-      <option value="<%= pHouse[i].name_prodHouse %>" <%= data.ProductionHouse.id == `pHouse[i].id` ? `selected="selected"` : `` %> > <%= pHouse[i].name_prodHouse %></option>
+      <option value="<%= pHouse[i].id %>" <%= data.ProductionHouse.id == `pHouse[i].id` ? `selected="selected"` : `` %> > <%= pHouse[i].name_prodHouse %></option>
       <% } %>
     </select><br><br>
     </div>

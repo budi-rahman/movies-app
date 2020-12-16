@@ -35,16 +35,6 @@
     </select><br><br>
     </div>
     </div>
-    <div class="form-group">
-        <div class="row">
-    <label for="ProductionHouseid" id="ProductionHouseid" name="ProductionHouseid">Production House</label><br>
-    <select name="ProductionHouseid" class="form-control" id="ProductionHouseid">
-        <% for (var i=0; i<data.length; i++) { %>
-      <option value="<%= data[i].id %>"> <%= data[i].name_prodHouse %></option>
-      <% } %>
-    </select><br><br>
-    </div>
-    </div>
     <button type="submit" class="btn btn-primary btn-sm">Submit</button>
   </form>
   </div>

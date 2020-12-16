@@ -75,9 +75,11 @@ class MovieController{
             name: req.body.name,
             released_year: req.body.released_year,
             genre: req.body.genre,
-            createdAt: new Date(),
+            ProductionHouseId: req.body.pHouse,
             updateAt: new Date()
         }
+
+        console.log(movie)
         Movie.update(movie, {where: {id: id}})
         .then(res.redirect('/movies'))
         .catch(err => res.send(err))
@@ -89,6 +91,26 @@ class MovieController{
         .then(res.redirect('/movies'))
         .catch(err => res.send(err))
     }
+
+    static addCastGet(req,res){
+        let listCast
+        let listMovie  
+        Cast.findAll()
+        .then(data=>{
+          listCast = data
+          return Movie.findByPk(req.params.id, {include: {model: Cast}})
+        })
+        .then(dataMovie=>{
+          listMovie = dataMovie
+          return MovieCast.findAll({where: {MovieId : req.params.id}})
+        })
+        .then(data=>{
+          res.render('addCastMovie', {data, listMovie, listCast})
+        })
+        .catch(error=>{
+          res.render('error', {error})
+        })
+      }
 }
 
 module.exports = MovieController

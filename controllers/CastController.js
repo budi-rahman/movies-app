@@ -1,4 +1,5 @@
-const { ProductionHouse, Movies, Cast } = require('../models')
+const { Movie, Cast, MovieCast } = require('../models')
+const getAgeRelease = require("../helper/utils")
 
 class CastController{
     static CastList(req, res){
@@ -74,6 +75,17 @@ class CastController{
         .then(res.redirect('/cast'))
         .catch(err => res.send(err))
     }
+
+    static seeMovies(req,res){
+        Cast.findByPk(req.params.id, {include: [{model: Movie}]})
+        .then(data=>{
+            console.log(data)
+          res.render('cast_movies', {data, getAgeRelease})
+        })
+        .catch(error=>{
+          res.send(error)
+        })
+      }
     
 }
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+          <!-- Main jumbotron for a primary marketing message or call to action -->
+          <div class="jumbotron">
+            <div class="container">
+              <h1 class="display-3"><%= mv_cast.name %></h1>
+              <p>Here is Movie Description</p>
+            </div>
+          </div>
+
+    <div class="container">
+  <h1>Add Cast</h1>
+  <form action="/moviecast/add" method="post">
+
+    <input type="hidden" id="mvid" name="mvid" class="form-control" value="<%= id %> ">
+    <label for="cast" id="cast" name="cast">Actor </label><br>
+    <select name="cast" class="form-control" id="cast">
+        <% for (var i=0; i<casts.length; i++) { %>
+      <option value="<%= casts[i].id %>"> <%= casts[i].first_name +" "+casts[i].last_name %></option>
+      <% } %>
+    </select><br><br>
+
+    <label for="role" id="role" name="role">Role</label><br>
+    <input type="text" id="role" name="role" size="20" class="form-control" required placeholder="Role Actor"><br><br>
+
+    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+  </form>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th style="text-align:center">Actor</th>
+        <th style="text-align:center">Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i = 0; i< mv_cast.Casts.length; i++) { %> 
+        <tr>
+          <td align="center"><%= mv_cast.Casts[i].first_name +" "+mv_cast.Casts[i].last_name %> </td>
+          <td align="center"><%=  role[i].role %> </td>
+        </tr>
+      <% } %> 
+    </tbody>
+  </table>
+
+  </div>
+</body>
+</html> 
