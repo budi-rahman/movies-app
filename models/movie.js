@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const MovieController = require('../controllers/MoviesController');
 module.exports = (sequelize, DataTypes) => {
   const Sequelize = sequelize.Sequelize
   const Model = Sequelize.Model
@@ -38,5 +39,10 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Movie',
   });
+
+  Movie.addHook('afterValidate',(movie,options) => {
+    movie.name = "apa wee"
+    console.log(options)
+  })
   return Movie;
 };

@@ -21,7 +21,6 @@ class MovieController{
             ]
         })
         .then((data) => {
-            console.log(data)
             res.render('add', {data:data})
         })
         
@@ -61,7 +60,7 @@ class MovieController{
                 ]
             })
         })
-        .then(data => {
+        .then(data => { 
             res.render('edit', {data:data[0], pHouse:ProductionData})
         })
         .catch(err => {
@@ -79,7 +78,6 @@ class MovieController{
             updateAt: new Date()
         }
 
-        console.log(movie)
         Movie.update(movie, {where: {id: id}})
         .then(res.redirect('/movies'))
         .catch(err => res.send(err))
