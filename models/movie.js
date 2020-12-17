@@ -40,9 +40,5 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'Movie',
   });
 
-  Movie.addHook('afterValidate',(movie,options) => {
-    movie.name = "apa wee"
-    console.log(options)
-  })
   return Movie;
 };
